@@ -1,6 +1,5 @@
 # Elastic Cloud on Kubernetes (ECK) on local
 
-{{TOC}}
 
 ## Install Docker desktop
 
