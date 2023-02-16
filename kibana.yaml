@@ -1,0 +1,21 @@
+# This sample sets up an Elasticsearch cluster with 3 nodes.
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  # uncomment the lines below to copy the specified node labels as pod annotations and use it as an environment variable in the Pods
+  #annotations:
+  #  eck.k8s.elastic.co/downward-node-labels: "topology.kubernetes.io/zone"
+  name: es1
+spec:
+  version: 8.6.1
+  count: 1
+  elasticsearchRef:
+    name: es1
+  http:
+    service:
+      spec:
+        # expose this cluster Service with a LoadBalancer
+        type: LoadBalancer
+    # tls:
+    #   selfSignedCertificate:
+    #     disabled: true
